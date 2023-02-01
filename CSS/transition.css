@@ -1,0 +1,11 @@
+.circle {
+    background-color: magenta;
+    width: 200px;
+    height: 200px;
+    transition: 1s;
+}
+
+.circle:hover {
+    background-color: aqua;
+    border-radius: 50%;
+}

@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+
+div {
+    color: purple;
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+}
+
+h1 {
+    background-color: orange;
+    width: 100px;
+    margin: 0;
+
+}
+
+#one {
+    background-color: lightgreen;
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+#two {
+    background-color: lightpink;
+}
+
+#three {
+    background-color: lightblue;
+    border: 4px solid black;
+    border-left-style: dotted;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+}

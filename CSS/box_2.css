@@ -1,0 +1,27 @@
+h1 {
+    background-color: rgb(229, 127, 255);
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    width: 300px;
+}
+
+
+span {
+    background-color: aquamarine;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    width: 10px;
+}
+
+div {
+    background-color: lawngreen;
+    border: 5px solid black;
+    width: 100px;
+    height: 100px;
+    /* display: inline; */
+    display: inline-block;
+    margin: 50px;
+
+}

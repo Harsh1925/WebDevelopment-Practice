@@ -1,0 +1,41 @@
+#container {
+    background-color: black;
+    width: 50%;
+    height: 500px;
+    margin: 100px auto;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+}
+
+div:nth-of-type(2) {
+    align-self: flex-end;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    height: 500px;
+    display: flex;
+    border: 5px solid black;
+}
+
+main .sidebar {
+    background-color: blueviolet;
+    flex: 1 2 300px;
+    border: 2px solid rgb(66, 179, 181);
+}
+
+main .maincontent {
+    background-color: rgb(211, 205, 20);
+    flex: 2 1 500px;
+}

@@ -34,58 +34,58 @@ mongoose.connect('mongodb://127.0.0.1:27017/productApp')
 //         console.log(data)
 //     })
 
-const productSchema = new mongoose.Schema({
+// const productSchema = new mongoose.Schema({
 
-    name: {
-        type: String,
-        require: true,
-        maxlength: 20
-    },
+//     name: {
+//         type: String,
+//         require: true,
+//         maxlength: 20
+//     },
 
-    price: {
-        type: Number,
-        require: true,
-        min: [0, "price must be postive you bucko!!"]
-    },
+//     price: {
+//         type: Number,
+//         require: true,
+//         min: [0, "price must be postive you bucko!!"]
+//     },
 
-    onSale: {
-        type: Boolean,
-        default: false
-    },
+//     onSale: {
+//         type: Boolean,
+//         default: false
+//     },
 
-    categories: [String],
-    qty: {
-        online: {
-            type: Number,
-            default: 0
-        },
-        inStore: {
-            type: Number,
-            default: 0
-        }
-    },
+//     categories: [String],
+//     qty: {
+//         online: {
+//             type: Number,
+//             default: 0
+//         },
+//         inStore: {
+//             type: Number,
+//             default: 0
+//         }
+//     },
 
-    size: {
-        type: String,
-        enum: ["S", "M", "L"]
-    }
-})
+//     size: {
+//         type: String,
+//         enum: ["S", "M", "L"]
+//     }
+// })
 
-productSchema.methods.greet = function () {
-    console.log("ok now")
-    console.log(`This is from ${this.name}`)
-}
+// productSchema.methods.greet = function () {
+//     console.log("ok now")
+//     console.log(`This is from ${this.name}`)
+// }
 
-productSchema.methods.toggleOnSale = function () {
-    this.onSale = !this.onSale;  // true hoy to false kari dese or vice versa
-    return this.save();   //this takes time that why we will use await fun
-}
+// productSchema.methods.toggleOnSale = function () {
+//     this.onSale = !this.onSale;  // true hoy to false kari dese or vice versa
+//     return this.save();   //this takes time that why we will use await fun
+// }
 
-productSchema.statics.fireSale = function () {
-    return this.updateMany({ name: ["Bike bag", "Bike Helmet"] }, { onSale: true, price: 0 })
-}
+// productSchema.statics.fireSale = function () {
+//     return this.updateMany({ name: ["Bike bag", "Bike Helmet"] }, { onSale: true, price: 0 })
+// }
 
-const Product = mongoose.model("Product", productSchema);
+// const Product = mongoose.model("Product", productSchema);
 
 
 
@@ -153,4 +153,33 @@ const Product = mongoose.model("Product", productSchema);
 
 // findProduct();
 
-Product.fireSale().then(res => console.log(res))
+//Product.fireSale().then(res => console.log(res))
+
+const personSchema = new mongoose.Schema({
+    first: String,
+    last: String
+})
+
+personSchema.virtual("fullName").get(function () {
+    return `${this.first} ${this.last}`
+})
+
+const Person = mongoose.model("Person", personSchema)
+
+const p = new Person({ first: "pandu", last: "modi" })
+
+// async function init() {
+//     console.log(1);
+//     await sleep(10000);
+console.log(p.fullName)
+//     console.log(2);
+// }
+// function sleep(ms) {
+//     return new Promise((resolve) => {
+//         setTimeout(resolve, ms);
+//     });
+// }
+// init()
+
+
+

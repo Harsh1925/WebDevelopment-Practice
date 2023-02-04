@@ -81,6 +81,10 @@ productSchema.methods.toggleOnSale = function () {
     return this.save();   //this takes time that why we will use await fun
 }
 
+productSchema.statics.fireSale = function () {
+    return this.updateMany({ name: ["Bike bag", "Bike Helmet"] }, { onSale: true, price: 0 })
+}
+
 const Product = mongoose.model("Product", productSchema);
 
 
@@ -122,29 +126,31 @@ const Product = mongoose.model("Product", productSchema);
 //     })
 
 
-const fndProduct = async () => {
-    const gotProduct = await Product.findOne({ name: "Bike Helmet" });
-    gotProduct.greet();
-}
+// const fndProduct = async () => {
+//     const gotProduct = await Product.findOne({ name: "Bike Helmet" });
+//     gotProduct.greet();
+// }
 
-fndProduct();
+// fndProduct();
 
 
-Product.findOneAndUpdate({ name: "Bike Helmet" }, { price: 1.09 }, { new: true, runValidators: true })
-    .then(data => {
-        console.log("It Worked! for third I think")
-        console.log(data);
-    })
-    .catch(err => {
-        console.log(" Oh Narhhhh")
-        console.log(err)
-    })
+// Product.findOneAndUpdate({ name: "Bike Helmet" }, { price: 1.09 }, { new: true, runValidators: true })
+//     .then(data => {
+//         console.log("It Worked! for third I think")
+//         console.log(data);
+//     })
+//     .catch(err => {
+//         console.log(" Oh Narhhhh")
+//         console.log(err)
+//     })
 
-const findProduct = async () => {
-    const foundProduct = await Product.findOne({ name: "Moutain Bike" });
-    console.log(foundProduct)
-    await foundProduct.toggleOnSale();
-    console.log(foundProduct)
-}
+// const findProduct = async () => {
+//     const foundProduct = await Product.findOne({ name: "Moutain Bike" });
+//     console.log(foundProduct)
+//     await foundProduct.toggleOnSale();
+//     console.log(foundProduct)
+// }
 
-findProduct();
+// findProduct();
+
+Product.fireSale().then(res => console.log(res))

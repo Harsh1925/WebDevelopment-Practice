@@ -25,6 +25,8 @@ const numbers = [5, 1, 32, 20, 12]
 
 const newNumbers = numbers.map(function (x) { return x * 2 })
 
+const okNum = numbers.map(x => x * x)
+
 //------------------------Filter Function---------------------
 
 // const filNumbers = [];
@@ -53,6 +55,8 @@ const reducedNumber = numbers.reduce(function (accumulator, currNum) {
   return accumulator + currNum;
 })
 
+const oknewNumber = numbers.reduce((acc, curr) => acc + curr);
+
 //---------------------------Find Function---------------------------
 
 const foundNumber = numbers.find(function (x) {
@@ -68,6 +72,8 @@ console.log(filNumbers)
 console.log(reducedNumber)
 console.log(foundNumber)
 console.log(foundIndex)
+console.log(okNum)
+console.log(oknewNumber)
 
 root.render(
   <div>
@@ -77,6 +83,8 @@ root.render(
     <h3>{reducedNumber}</h3>
     <h3>{foundNumber}</h3>
     <h3>{foundIndex}</h3>
+    <h3>{okNum}</h3>
+    <h3>{oknewNumber}</h3>
   </div>
 );
 

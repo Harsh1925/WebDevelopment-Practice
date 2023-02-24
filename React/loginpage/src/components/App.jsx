@@ -17,8 +17,12 @@ var isLoggedIn = true;
 function App() {
     return <div className="container">
         {
-            isLoggedIn ? <h1>Hello & Logged IN</h1> : <Login />
+            isLoggedIn ? <h1>Hello & Logged IN</h1> : <Login isLoggedIn={isLoggedIn} />
         }
+        {
+            isLoggedIn ? <Login isLoggedIn={isLoggedIn} /> : null
+        }
+
     </div>
 }
 

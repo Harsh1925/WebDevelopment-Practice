@@ -5,7 +5,12 @@ const mongoose = require("mongoose")
 mongoose.set('strictQuery', true);
 
 dotevn.config({ path: "./config.env" });
-require("./db/conn")
+require("./db/conn");
+
+app.use(express.json());
+app.use(require("./router/auth"))
+
+const User = require("./model/userSchema");
 const PORT = process.env.PORT
 
 
